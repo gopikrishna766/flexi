@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+{% for b in a %}
+<a href="#">{{b.process_id}}</a>
+<a href="#">{{b.name}}</a>
+<a href="#">{{b.start_time}}</a>
+<a href="#">{{b.end_time}}</a>
+{% if b.status == True %}
+<p>Success</p>
+{% else %}
+<p>Under Process...</p>
+{% endif %}
+{% endfor %}
+</body>
+</html>
