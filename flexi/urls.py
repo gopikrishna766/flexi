@@ -22,4 +22,5 @@ urlpatterns = [
     url(r'^$', home, name='home'),
     url(r'^insert_process/', insert_process, name='insert_process'),
     url(r'^process_list/', process_list, name='process_list'),
+    url(r'^overview/', overview, name='overview'),
 ]

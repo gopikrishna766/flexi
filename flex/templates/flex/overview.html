@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="row">
+{% for item in content %}
+<div>
+<p>
+{{item.name}}({{item.average}} Sec)
+</p>
+{% endfor %}
+</div>
+</div>
+{% endblock %}

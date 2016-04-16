@@ -1,7 +1,7 @@
 from __future__ import unicode_literals
 
 from django.db import models
-
+import timedelta
 # Create your models here.
 
 class Process(models.Model):
@@ -16,7 +16,7 @@ class ProcessChild(models.Model):
 	start_time = models.DateTimeField()
 	end_time = models.DateTimeField(blank = True, null = True)
 	status = models.BooleanField(default=False)
-	duration = models.DateTimeField(blank = True, null = True)
+	duration = models.FloatField(default=0)
 	
 	def __str__(self):
 		return self.process_id
