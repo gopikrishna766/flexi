@@ -4,7 +4,7 @@
 	{% for item in content %}
 	<div class="col-sm-2">
 		<a class="btn grid" href="{% url 'monthly_report' item.name %}">
-			<span>{{item.name}}({{item.average}} Sec)</span>
+			<span>{{item.name}} at avg {{item.average}} Sec</span>
 		</a>
 	</div>
 {% endfor %}

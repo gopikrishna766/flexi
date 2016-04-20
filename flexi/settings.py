@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'googlecharts',
+    'post_office',
     'flex',
 ]
 
@@ -125,12 +126,18 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 STATIC_URL = '/static/'
 
-
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-EMAIL_HOST = email.EMAIL_HOST
-EMAIL_HOST_USER = email.EMAIL_HOST_USER
-EMAIL_HOST_PASSWORD = email.EMAIL_HOST_PASSWORD
+# EMAIL_USE_TLS = True
+# EMAIL_HOST = 'smtp-mail.outlook.com'
+# EMAIL_HOST_USER = 'gopikrishna766@outlook.com'
+# EMAIL_HOST_PASSWORD = 'puppy@gopi!'
+# EMAIL_PORT = 587
+EMAIL_HOST = 'smtp.gmail.com'
+
+# Port for sending e-mail.
 EMAIL_PORT = 587
+
+# Optional SMTP authentication information for EMAIL_HOST.
+EMAIL_HOST_USER = 'gopi.github@gmail.com'
+EMAIL_HOST_PASSWORD = 'srvocaypdqigyweo'
 EMAIL_USE_TLS = True
-
-
