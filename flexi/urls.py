@@ -23,4 +23,7 @@ urlpatterns = [
     url(r'^insert_process/', insert_process, name='insert_process'),
     url(r'^process_list/', process_list, name='process_list'),
     url(r'^overview/', overview, name='overview'),
+    url(r'^chart_view/(\d+)/', chart_view, name='chart_view'),
+    url(r'^monthly_report/(\w+)/', monthly_report, name='monthly_report'),
+    url(r'^send_email/', send_email, name='send_email'),
 ]

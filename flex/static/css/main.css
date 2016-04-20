@@ -1,0 +1,10 @@
+/*styling for grid in the overview page*/
+.grid{
+height: 125px;
+width: 156px;
+background-color: #66ff33;
+padding-left: 15px;
+padding-top: 50px;
+color: black;
+border-radius: 20px;
+}
