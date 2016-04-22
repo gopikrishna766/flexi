@@ -1,17 +1,41 @@
 import iso8601, datetime
 from django.utils.safestring import mark_safe
 from django.shortcuts import render
-from django.http import HttpResponse
+from django.http import HttpResponse, HttpResponseRedirect
 from django.views.decorators.csrf import csrf_exempt
 from django.core.mail import send_mail, EmailMultiAlternatives
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth import authenticate, logout, login
 
 from .models import Process, ProcessChild
 from . import email
 # Create your views here.
 
+def signin(request):
+	if request.user.is_authenticated():
+		return HttpResponseRedirect("/home")
+	else:
+		return render(request, "flex/signin.html")
+
 def home(request):
-	return render(request, "flex/home.html")
+	if request.user.is_authenticated():
+		return render(request, "flex/home.html")
+
+def auth_process(request):
+	if request.method=="POST":
+		user_name = request.POST.get("username") 
+		password = request.POST.get("password") 
+		print(user_name)
+		print(password)
+		login_success = authenticate(username=user_name, password=password)
+		if login_success is not None:
+			if login_success.is_active:
+				login(request, login_success)
+				return HttpResponseRedirect("/home")
+			else:
+				return HttpResponse("wrong")
+		else:
+			return HttpResponse("wrong")		
 
 @csrf_exempt
 def insert_process(request):
@@ -50,11 +74,12 @@ def overview(request):
 	content = []
 	for pro in processes:
 		process_name = pro.name
-		children_count = pro.processchild_set.all().count()
+		children_count = pro.processchild_set.all().exclude(end_time=None).count()
 		process_children = pro.processchild_set.all()
 		total_duration = 0.0
 		for child in process_children:
-			total_duration = total_duration + float(child.duration)
+			if child.duration:
+				total_duration = total_duration + float(child.duration)
 		avg = total_duration/children_count
 		content_child = {
 		"name" : process_name,
@@ -70,7 +95,8 @@ def chart_view(request, b_name_id):
 	child_set = pro.processchild_set.all().order_by("-id")[:9].reverse()
 	values = []
 	for child in child_set:
-		values.append([child.start_time, child.duration])
+		if child.duration:
+			values.append([child.start_time, child.duration])
 	return render(request, 'flex/graph.html', {'values': values})
 
 @login_required
@@ -81,7 +107,8 @@ def monthly_report(request, item_name):
 	child_set = pro.processchild_set.filter(start_time__gte=day).reverse()[:30]
 	values = []
 	for child in child_set:
-		values.append([child.start_time, child.duration])
+		if child.duration:
+			values.append([child.start_time, child.duration])
 	return render(request, "flex/graph.html", {'values':values})
 
 
@@ -105,5 +132,10 @@ def send_email(request):
 		msg.send()
 		return HttpResponse()
 	else:
-		return HttpResponse('something is wrong')    
+		return HttpResponse('something is wrong')
+
+@login_required
+def user_logout(request):
+	logout(request)
+	return HttpResponseRedirect('/')		    
 		

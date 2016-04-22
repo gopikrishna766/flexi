@@ -1,12 +1,30 @@
 {% extends "base.html" %}
 {% block content %}
+<div class="page-header head">
+<h1>Processes And Their Average Running Time</h1>	
+</div>
 <div class="row">
-	{% for item in content %}
-	<div class="col-sm-2">
-		<a class="btn grid" href="{% url 'monthly_report' item.name %}">
-			<span>{{item.name}} at avg {{item.average}} Sec</span>
-		</a>
-	</div>
-{% endfor %}
+	<div class="table-responsive">
+		<table class="table table-bordered table">
+			<thead>
+				<th>Process Name</th>
+				<th>Average Duration</th>
+				<th>Details</th>
+			</thead>
+			{% for item in content %}
+			<tr>
+				<td>
+					{{item.name}}
+				</td>
+				<td>
+					{{item.average}}
+				</td>
+				<td>
+					<a class="btn btn-sm btn-primary" href="{% url 'monthly_report' item.name %}">View  &nbsp;&nbsp;>></a>
+				</td>
+			</tr>
+			{% endfor %}
+		</table>
+	</div>	
 </div>
 {% endblock %}

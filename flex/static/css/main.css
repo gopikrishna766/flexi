@@ -8,3 +8,70 @@ padding-top: 50px;
 color: black;
 border-radius: 20px;
 }
+
+body{
+	
+	background-color: #2B343D;
+  color:#eee;
+}
+
+.spacer{
+	height: 50px;
+}
+
+.table{
+	background-color: white;
+	border-color: green;
+	border-radius: 10px;
+	text-align: center;
+}
+th{
+	background-color: #337ab7;
+	color: white;
+	text-align: center;
+}
+
+.success{
+	color: #5cb85c; 
+}
+
+.warning{
+	color: #f0ad4e;
+}
+.head{
+	text-align: center;
+}
+td{
+  color: black;
+}
+
+
+html,
+      body {
+        height: 100%;
+        /* The html and body elements cannot have any padding or margin. */
+      }
+
+      /* Wrapper for page content to push down footer */
+      #wrap {
+        min-height: 100%;
+        height: auto !important;
+        height: 100%;
+        /* Negative indent footer by its height */
+        margin: 0 auto -40px;
+        /* Pad bottom by footer height */
+        padding: 0 0 30px;
+      }
+
+      /* Set the fixed height of the footer here */
+      #footer {
+        height: 40px;
+        background-color: black;
+        color: #7C7C7C;
+        text-align: center;
+      }
+
+.navbar-inverse {
+    background-color: black;
+    border-color: #E7E7E7;
+}      

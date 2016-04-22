@@ -19,11 +19,14 @@ from flex.views import *
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^$', home, name='home'),
+    url(r'^$', signin, name='signin'),
+    url(r'^home/', home, name='home'),
+    url(r'^auth_process/', auth_process, name='auth_process'),
     url(r'^insert_process/', insert_process, name='insert_process'),
     url(r'^process_list/', process_list, name='process_list'),
     url(r'^overview/', overview, name='overview'),
     url(r'^chart_view/(\d+)/', chart_view, name='chart_view'),
     url(r'^monthly_report/(\w+)/', monthly_report, name='monthly_report'),
     url(r'^send_email/', send_email, name='send_email'),
+    url(r'^user_logout/', user_logout, name='user_logout'),
 ]
