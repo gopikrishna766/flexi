@@ -2,6 +2,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
 	<link rel="stylesheet" type="text/css" href="/static/css/bootstrap.min.css">
   	<link rel="stylesheet" type="text/css" href="/static/css/dashboard.css">
 	<link rel="stylesheet" type="text/css" href="/static/css/main.css">
@@ -88,11 +89,11 @@
 			<td>
 			{% if b.status == True %}
 			<div class="success">
-			Success
+			<i class="fa fa-check" aria-hidden="true"></i>Success
 			</div>
 			{% else %}
 			<div class="warning">
-			Under Process...
+			<i class="fa fa-spinner fa-spin fa-lg" aria-hidden="true"></i>  Under Process.......
 			</div>
 			{% endif %}
 			</td>

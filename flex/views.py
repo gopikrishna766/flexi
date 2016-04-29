@@ -25,8 +25,6 @@ def auth_process(request):
 	if request.method=="POST":
 		user_name = request.POST.get("username") 
 		password = request.POST.get("password") 
-		print(user_name)
-		print(password)
 		login_success = authenticate(username=user_name, password=password)
 		if login_success is not None:
 			if login_success.is_active:
@@ -86,7 +84,6 @@ def overview(request):
 		"average" : avg
 		}
 		content.append(content_child)
-	print(type(content))
 	return render(request, 'flex/overview.html', {"content":content})
 
 @login_required
@@ -113,7 +110,6 @@ def monthly_report(request, item_name):
 
 
 def send_email(request):
-	print(email.EMAIL_HOST_USER)
 	subject = "Daily report"
 	message=""
 	from_email = email.EMAIL_HOST_USER
