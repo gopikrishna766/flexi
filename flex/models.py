@@ -1,6 +1,4 @@
 from __future__ import unicode_literals
-
-import timedelta
 from django.db import models
 # Create your models here.
 
@@ -11,6 +9,10 @@ class Process(models.Model):
 		return self.name
 
 class ProcessChild(models.Model):
+	STATUS_CHOICES = (
+        ('failed', 'failed'),
+        ('success', 'success'),
+    )
 	process_id = models.CharField(max_length=20)
 	name = models.ForeignKey('Process')
 	start_time = models.DateTimeField()

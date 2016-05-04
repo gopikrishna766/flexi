@@ -20,7 +20,7 @@
 					{{item.average}}
 				</td>
 				<td>
-					<a class="btn btn-sm btn-primary" href="{% url 'monthly_report' item.name %}">View  &nbsp;&nbsp;>></a>
+					<a class="btn btn-sm btn-primary view" href="{% url 'monthly_report' item.name %}" id={{item.name}}>View  &nbsp;&nbsp;>></a>
 				</td>
 			</tr>
 			{% endfor %}

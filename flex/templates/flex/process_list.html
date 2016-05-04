@@ -87,9 +87,13 @@
 			{% endif %}
 			</td>
 			<td>
-			{% if b.status == True %}
+			{% if b.status == "success" %}
 			<div class="success">
 			<i class="fa fa-check" aria-hidden="true"></i>Success
+			</div>
+			{% elif b.status == "failed"%}
+			<div class="warning">
+			<i class="fa fa-spinner fa-spin fa-lg" aria-hidden="true"></i>  Failed
 			</div>
 			{% else %}
 			<div class="warning">
