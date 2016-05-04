@@ -17,7 +17,7 @@ class ProcessChild(models.Model):
 	name = models.ForeignKey('Process')
 	start_time = models.DateTimeField()
 	end_time = models.DateTimeField(blank = True, null = True)
-	status = models.BooleanField(default=False)
+	status = models.CharField(max_length=50, choices=STATUS_CHOICES)
 	duration = models.FloatField(blank = True, null = True)
 
 	def __str__(self):

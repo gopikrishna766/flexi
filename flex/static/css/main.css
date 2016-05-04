@@ -37,6 +37,9 @@ th{
 .warning{
 	color: #f0ad4e;
 }
+.failed{
+  color: #ff3300
+}
 .head{
 	text-align: center;
 }

@@ -47,7 +47,7 @@ def insert_process(request):
 			end_time = iso8601.parse_date(got.get('end_time'))
 			target = ProcessChild.objects.get(process_id = got.get('process_id'), name=Process.objects.get(id= a[0].id))
 			target.end_time = end_time
-			target.status = True
+			target.status=got.get('pro_status')
 			duration_sec = end_time - target.start_time
 			target.duration = duration_sec.total_seconds()
 			target.save()

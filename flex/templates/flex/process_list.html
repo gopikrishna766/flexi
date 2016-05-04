@@ -91,13 +91,13 @@
 			<div class="success">
 			<i class="fa fa-check" aria-hidden="true"></i>Success
 			</div>
-			{% elif b.status == "failed"%}
-			<div class="warning">
-			<i class="fa fa-spinner fa-spin fa-lg" aria-hidden="true"></i>  Failed
+			{% elif b.status == "failed" %}
+			<div class="failed">
+			<i class="fa fa-times fa-lg" aria-hidden="true"></i>Failed
 			</div>
 			{% else %}
 			<div class="warning">
-			<i class="fa fa-spinner fa-spin fa-lg" aria-hidden="true"></i>  Under Process.......
+			<i class="fa fa-spinner fa-spin fa-lg" aria-hidden="true"></i>{{b.pro_status}}Under Process.......
 			</div>
 			{% endif %}
 			</td>
