@@ -56,7 +56,7 @@ def insert_process(request):
 				message=""
 				from_email = email.EMAIL_HOST_USER
 				email_to = ['gopikrishna766@gmail.com']
-				attach = '<p>Please go through the reports shown in the table below</p><table border="1"><thead><th>Process Name</th><th>Start Time</th><th>End Time</th><th>status</th></thead><tr><td>'+ str(target.name) +'</td><td>'+ str(target.start_time)+'</td><td>'+ str(target.end_time) +'</td><td>'+ str(target.status)+'</td></tr></table>'
+				attach = '<p>Please go through the failed reports</p><table border="1"><thead><th>Process Name</th><th>Start Time</th><th>End Time</th><th>status</th></thead><tr><td>'+ str(target.name) +'</td><td>'+ str(target.start_time)+'</td><td>'+ str(target.end_time) +'</td><td>'+ str(target.status)+'</td></tr></table>'
 				if subject and from_email:
 					msg = EmailMultiAlternatives(subject, message, from_email, email_to)
 					msg.attach_alternative(attach, "text/html")
