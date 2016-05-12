@@ -45,9 +45,10 @@
     {# you can also use global javascript variables here, #}
     {# and call functions #}
     {% options "out_options" %}
-        kind: "LineChart",
+        kind: "ColumnChart",
         options: {
             title:'process dates and their duration in seconds',
+            bar: {groupWidth: "5%"},
         }
     {% endoptions %}
     {# chart is assembled from container, data and options #}
@@ -109,7 +110,7 @@
 </div>		
 </div>
 <div id="footer">
-  <p>Copyright © Gopi Krishna (gopikrishna766@gmail.com) & Flexisphere Software Solutions Pvt Ltd</p>
+  <p>Copyright © Gopi Krishna (gopikrishna766@gmail.com)</p>
 </div>
 </body>
 <script type="text/javascript" src="/static/js/jquery.min.js"></script>

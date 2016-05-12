@@ -70,10 +70,10 @@ def process_list(request):
 	now = datetime.datetime.now()
 	today = now.replace(hour=0, minute=0, second=0, microsecond=0)
 	table = ProcessChild.objects.filter(start_time__gte=today)
-	a = ProcessChild.objects.filter(start_time__gte=today).exclude(end_time=None)
+	list_process = ProcessChild.objects.filter(start_time__gte=today).exclude(end_time=None)
 	values = []
-	for b in a:
-		values.append([b.name.name, b.duration])
+	for child in list_process:
+		values.append([child.name.name, child.duration])
 	return render(request, "flex/process_list.html", {"a":table, "values":values})
 
 @login_required
